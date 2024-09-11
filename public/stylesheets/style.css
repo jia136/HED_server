@@ -1,0 +1,268 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.header {
+  padding: 5px;
+  text-align: center;
+}
+
+.header h1 {
+  font-size: 90px;
+  background-image: url(image.jpg);
+  background-size: 150px;
+  background-repeat: repeat;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  object-fit: contain;
+}
+
+h2 {
+  font-size: 22px;
+  text-align: center;
+  color: #403F3C;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 18px;
+  color: #403F3C;
+}
+
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.side {
+  flex: 25%;
+  padding: 10px;
+  margin-left: 0%;
+  border: thick double #FDDA16;
+}
+
+.main {   
+  flex: 75%;
+  padding: 10px;
+  background-color: white;
+}
+
+.checkbox{
+  height: 30px;
+  color: #403F3C; 
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 7px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 8px 6px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: #403F3C; 
+  border: 2px solid #FDDA16;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.button1:hover {
+  background-color: #FDDA16;
+  color: white;
+};
+
+.button2 {
+  background-color: white; 
+  color: #403F3C; 
+  border: 2px solid #FDDA16;
+}
+
+.button2:hover {
+  background-color: #FDDA16;
+  color: white;
+}
+
+.button:disabled {
+  background-color: #FDDA16;
+  color: white;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.scrollbox {
+  overflow: scroll;
+  scrollbar-width: thin;
+  width: 35%;
+  height: 80px;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #403F3C;  
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #403F3C;  
+}
+
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #403F3C;
+  color: white;
+  margin-top: 30px;
+}
+
+#map{
+  height: 700px;
+  width: 100%;
+}
+
+p#moveIDpres {
+  color: #403F3C;
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+p#paraAllCarList {
+  color: #403F3C;
+  font-size: 16px;
+  font-weight: normal;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.container {
+  margin-top: 10px;
+}
+
+.containerBra {
+  position: relative;
+  text-align: center;
+  color: #403F3C;
+  font-size: 26px;
+  font-weight: normal;
+  margin-left: 0px;
+}
+
+.containerTur {
+  position: relative;
+  text-align: center;
+  color: #403F3C;
+  font-size: 26px;
+  font-weight: normal;
+  margin-left: 0px;
+}
+
+.containerAcc {
+  position: relative;
+  text-align: center;
+  color: #403F3C;
+  font-size: 26px;
+  font-weight: normal;
+  margin-left: 0px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 0;
+}
+
+h3#h3Sensor {
+  font-size: 18px;
+  text-align: center;
+  color: #FDDA16;
+  font-weight: bold;
+  left: 50%;
+}
+
+.menu {
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.menu select {
+  font-family: Arial;
+  padding: 7px 25px;
+  font-size: 15px;
+  text-align: left;
+  border-style: none;
+  background: #f1f1f1;
+  color: #403F3C;
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+select option:checked {
+  cursor: pointer;
+  background: #FDDA16;
+  color: white;
+}
+
+div {
+  margin-bottom: 10px;
+  position: inherit;
+}
+
+input#vin {
+  width: 30%;
+  height: 18px;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  border: 2px solid #FDDA16;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+}
+
+input#vin + span {
+  padding-right: 30px;
+}
+
+input#vin:invalid + span::after {
+  position: absolute;
+  content: "✖";
+  padding-left: 5px;
+}
+
+input#vin:valid + span::after {
+  position: absolute;
+  content: "✓";
+  padding-left: 5px;
+}
+/* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .row {   
+    flex-direction: column;
+  }
+}
+
