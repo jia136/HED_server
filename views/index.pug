@@ -5,54 +5,66 @@ block content
     h1= title
   .row
     .side
-      h2 Harsh events - total
-        h3#h3Sensor Brakes
-          .containerBra
-            img(src='images/warning.png' alt='temperature' style='width: 150px; height: 150px; object-fit: contain;opacity: 0.18;')
-            .centered
-              p#Brakes
-        h3#h3Sensor Turns
-          .containerTur
-            img(src='images/sign_road.png' alt='pressure' style='width: 180px; height: 180px; object-fit: contain; opacity: 0.18;')
-            .centered
-              p#Pressure
-        h3#h3Sensor Acceleration
-          .containerAcc
-            img(src='images/sign_bad_road.png' alt='acceleration' style='width: 150px; height: 150px; object-fit: contain;opacity: 0.18;')
-            .centered
-              p#Acceleration
-    .main
-      h2 Harsh events - details
+      h2 OBD-II data
+      obdData
+        select#vinlist(name='vinlist')
+          option(disabled='' selected='' value='none' ) - Select VIN -
+        .espDataPrint
+          h4 Vehicle speed
+          p#d0
+          h4 Engine speed
+          p#d1
+          h4 Fuel pressure
+          p#d2
+          h4 MAP
+          p#d3
+      h2 Interval Settings
       .menu
-        .menu4
+        form
+          div#interval
+            input#vin(type='text' name='vin' placeholder='Enter VIN' required='' size='45' pattern="[0-z]{3}-[0-z]{7}-[0-z]{1}[0-9]{6}" title='17 characters, e.g. 1P8-ZA1279S-Z215470')
+            span.validity#vinValid
+        select#IntervalList(name='IntervalList', placeholder='default')
+          option(value='1000') 1s
+          option(value='10000') 10s
+          option(value='60000') 60s
+          option(value='300000') 300s
+        button.button.button1#btnSetInt Set interval
+    .main
+      h2 Trip details
+      .menu
+        .menuCars
           label(for="#carlist") Cars:  
-          select#carlist(name='carlist')
-          label(for='myCheckAll')   Select all cars:
-          input#myCheckAll(type='checkbox')        
+          select#carlist(name='carlist')     
           button.button.button1#btnShowTrips Show trips list                     
-        .menu6
-          label#triplistLabel(for='triplist' hidden='hidden') Select trip: 
-          select#triplist(name='triplist' hidden='hidden')
-        h3#Carlist_h3(hidden='hidden') Cars list 
+        .menuTrips
+          label#triplistLabel(for='triplist') Select trip: 
+          select#triplist(name='triplist')
+          h3#harshTitle Harsh events per trip
+          .harshEventsDetails                  
+            h3 Brakes
+              .container
+                img(src='images/warning_fix.png' alt='brake' style='width: 130px; height: 130px; object-fit: contain;opacity: 0.18;')
+                .centered
+                  p#Brakes
+            h3 Turns
+              .container
+                img(src='images/sign_road_fix.png' alt='turns' style='width: 130px; height: 130px; object-fit: contain; opacity: 0.18;')
+                .centered
+                  p#Pressure
+            h3 Acceleration
+              .container
+                img(src='images/sign_bad_road_fix.png' alt='acceleration' style='width: 130px; height: 130px; object-fit: contain;opacity: 0.18;')
+                .centered
+                  p#Acceleration 
+        h3#Carlist_h3(hidden='hidden') Trip map 
         .container
           .card
             .card-header
             .card-block
               #map
               script(defer ='' src='https://maps.googleapis.com/maps/api/js?key=AIzaSyA4B_yrdqxkWiNTqAiw33jjZFvor2KL0Tk&v=weekly&libraries=marker')
-      h2 Interval Settings
-      .menu
-        form
-          div
-            input#vin(type='text' name='vin' placeholder='Enter VIN' required='' size='45' pattern="[0-z]{3}-[0-z]{7}-[0-z]{1}[0-9]{6}" title='17 characters, e.g. 1P8-ZA1279S-Z215470')
-            span.validity#vinValid
-        select#IntervalList(name='IntervalList', placeholder='default')
-          option(value='10') 10 ms
-          option(value='1000') 1s
-          option(value='10000') 10s
-          option(value='60000') 60s
-          option(value='300000') 300s
-        button.button.button1#btnSetInt Set interval
+      
   .footer
-    p Aleksandar Petrovic FTN Novi Sad Serbia
+    p Aleksandar Petrovic
     p September 2024

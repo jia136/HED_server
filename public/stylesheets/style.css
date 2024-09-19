@@ -3,18 +3,19 @@
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   margin-left: 10%;
   margin-right: 10%;
 }
 
 .header {
-  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0px;
   text-align: center;
 }
 
 .header h1 {
-  font-size: 90px;
+  font-size: 95px;
   background-image: url(image.jpg);
   background-size: 150px;
   background-repeat: repeat;
@@ -22,18 +23,6 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   object-fit: contain;
-}
-
-h2 {
-  font-size: 22px;
-  text-align: center;
-  color: #403F3C;
-  font-weight: bold;
-}
-
-h3 {
-  font-size: 18px;
-  color: #403F3C;
 }
 
 .row {  
@@ -45,18 +34,109 @@ h3 {
   flex: 25%;
   padding: 10px;
   margin-left: 0%;
-  border: thick double #FDDA16;
+  margin-right: 0%;
+  border: thick double white;
+  background-color: #fce14a;
 }
 
 .main {   
   flex: 75%;
   padding: 10px;
-  background-color: white;
 }
 
-.checkbox{
-  height: 30px;
-  color: #403F3C; 
+h2 {
+  font-size: 23px;
+  text-align: center;
+  color: #403F3C;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 15px;
+  text-align: left;
+  color: #FDDA16;
+  font-weight: bold;
+  left: 10%;
+}
+
+.side h3 {
+  font-size: 20px;
+  text-align: center;
+  color: #FDDA16;
+  font-weight: bold;
+  left: 50%;
+}
+
+select#vinlist {
+  width: 95%;
+  line-height: 28px;
+  font-weight: normal;
+  padding: 7px 5px;
+  font-size: 15px;
+  text-align: center;
+  border-style: none;
+  background: #f1f1f1;
+  color: #403F3C;
+  cursor: pointer;
+  -webkit-appearance: button;
+}
+
+.espDataPrint {
+  font-size: 15px;
+  text-align: center;
+  font-weight: normal;
+  padding-top: 10px;
+}
+
+.espDataPrint h4 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 15px;
+  text-align: center;
+  color: #403F3C;
+  font-weight:bold;
+}
+
+.espDataPrint p {
+  color: #403F3C;
+  font-weight: normal;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 0.55px;
+}
+
+.harshEventsDetails h3{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 30%;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: auto;
+}
+
+.container {
+  position: relative;
+  text-align: center;
+  color: #403F3C;
+  font-size: 40px;
+  font-weight: normal;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: #403F3C;
+}
+
+.centered p {
+  padding: 0%;
+  font-size: 40px;
+  color: #403F3C;
 }
 
 .button {
@@ -84,17 +164,6 @@ h3 {
   background-color: #FDDA16;
   color: white;
 };
-
-.button2 {
-  background-color: white; 
-  color: #403F3C; 
-  border: 2px solid #FDDA16;
-}
-
-.button2:hover {
-  background-color: #FDDA16;
-  color: white;
-}
 
 .button:disabled {
   background-color: #FDDA16;
@@ -126,93 +195,35 @@ h3 {
   background: #403F3C;  
 }
 
-.footer {
+.footer{
   text-align: center;
   padding: 10px;
-  background-color: #403F3C;
-  color: white;
-  margin-top: 30px;
+  margin-top: 25px;
+}
+
+.footer p {
+  color: #403F3C;
+  font-size: 15px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 #map{
   height: 700px;
   width: 100%;
-}
-
-p#moveIDpres {
-  color: #403F3C;
-  font-size: 16px;
-  font-weight: normal;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-
-p#paraAllCarList {
-  color: #403F3C;
-  font-size: 16px;
-  font-weight: normal;
-  margin-left: 2%;
-  margin-right: 2%;
-}
-
-.container {
   margin-top: 10px;
-}
-
-.containerBra {
-  position: relative;
-  text-align: center;
-  color: #403F3C;
-  font-size: 26px;
-  font-weight: normal;
-  margin-left: 0px;
-}
-
-.containerTur {
-  position: relative;
-  text-align: center;
-  color: #403F3C;
-  font-size: 26px;
-  font-weight: normal;
-  margin-left: 0px;
-}
-
-.containerAcc {
-  position: relative;
-  text-align: center;
-  color: #403F3C;
-  font-size: 26px;
-  font-weight: normal;
-  margin-left: 0px;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-ul {
-  list-style-type: none;
-  margin-left: 0;
-}
-
-h3#h3Sensor {
-  font-size: 18px;
-  text-align: center;
-  color: #FDDA16;
-  font-weight: bold;
-  left: 50%;
 }
 
 .menu {
   margin-left: 2%;
   margin-right: 2%;
+  letter-spacing: 0.55px;
+  font-size: 16px;
+  line-height: 28px;
+  font-weight: normal;
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .menu select {
-  font-family: Arial;
   padding: 7px 25px;
   font-size: 15px;
   text-align: left;
@@ -229,13 +240,18 @@ select option:checked {
   color: white;
 }
 
-div {
+label {
+  color: #403F3C;
+}
+
+div#interval {
   margin-bottom: 10px;
+  margin-left: 1%;
   position: inherit;
 }
 
 input#vin {
-  width: 30%;
+  width: 80%;
   height: 18px;
   padding: 10px 15px;
   box-sizing: border-box;
@@ -259,6 +275,7 @@ input#vin:valid + span::after {
   content: "✓";
   padding-left: 5px;
 }
+
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row {   

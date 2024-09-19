@@ -5,6 +5,9 @@ import { getCarInfoAll } from './database.js';
 import { setInterval } from './database.js';
 import { getInterval } from './database.js';
 import { setTripEvent } from './database.js';
+import { setEsp32Data } from './database.js';
+import { getEsp32Data } from './database.js';
+import { getEsp32DataAll } from './database.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = new_path.dirname(__filename);
@@ -67,11 +70,35 @@ app.post('/clikedCarInfo', async (req, res) => {
   const CarInfo = await getCarInfo(tripid);
   res.status(201).send(CarInfo);
 });
-/** POST /clikedCarInfoAll - get trip info for all cars from db and sent it to frontend */
+/** GET /clikedCarInfoAll - get trip info for all cars from db and sent it to frontend */
 app.get('/clikedCarInfoAll', async (req, res) => {
   console.log("all car");
   const CarInfoAll = await getCarInfoAll();
   res.status(201).send(CarInfoAll);
+});
+
+/** POST /esp32data - put info from esp32 to database */
+app.post('/esp32dataPost', async (req, res) => {
+  const { vin, data0, data1, data2, data3 } = req.body
+  console.log(vin, data0, data1, data2, data3);
+  res.sendStatus(201)
+  setEsp32Data(vin, data0, data1, data2, data3); // vin, data0, data1, data2, data3
+});
+
+/** POST /esp32dataGet - get data for specific vin from database and send it */
+app.post('/esp32dataGet', async (req, res) => {  
+  const { vin } = req.body
+  console.log(vin);  
+  const espData = await getEsp32Data(vin); // vin
+  res.status(201).send(espData);
+  console.log(espData);
+});
+
+/** GET /esp32dataGetAll - get all data from esp_data_t, used to list all availables vin to user */
+app.get('/esp32dataGetAll', async (req, res) => {  
+  const espData = await getEsp32DataAll(); // AllVINs
+  res.status(201).send(espData);
+  console.log(espData);
 });
 
 // catch 404 and forward to error handler

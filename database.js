@@ -33,6 +33,24 @@ export async function setInterval(VIN, INT) {
     return rows
 };
 
+export async function setEsp32Data(VIN, DATA0, DATA1, DATA2, DATA3) {
+    var command = 'REPLACE INTO esp_data_t VALUES (?, ?, ?, ?, ?)'
+    const [rows] = await pool.query(command, [VIN, DATA0, DATA1, DATA2, DATA3]);
+    return rows
+};
+
+export async function getEsp32Data(vin) {
+    var command = 'SELECT * FROM esp_data_t WHERE vin =' + '\''+ vin + '\'';
+    const [rows] = await pool.query(command);
+    return rows
+};
+
+export async function getEsp32DataAll() {
+    var command = 'SELECT * FROM esp_data_t';
+    const [rows] = await pool.query(command);
+    return rows
+};
+
 export async function setTripEvent(vin, tripid, event, lat, lng) {
     var command = 'INSERT INTO vehicle_data_t VALUES (?, ?, ?, ?, ?)'
     const [rows] = await pool.query(command, [vin, tripid, event, lat, lng]);
